@@ -17,3 +17,8 @@
     border-radius:5px;
     cursor: pointer;
 }
+.product-div{
+    margin-left: 60px;
+    margin-right:60px;
+    padding: 25px;
+}
