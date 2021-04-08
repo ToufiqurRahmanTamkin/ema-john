@@ -11,9 +11,7 @@ const Review = () => {
 
     const [orderPlaced, setOrderPlaced] = useState(false);
     const history = useHistory()
-
     const handleProceedCheckout = () =>{
- 
         history.push('/shipment');
     }
     const removeProduct = (productKey) =>{

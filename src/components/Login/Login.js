@@ -3,9 +3,12 @@ import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 import {createUserWithEmailAndPassword, initializeLoginFramework, signInWithEmailAndPassword} from './LoginManager';
 import {handleGoogleSignIn, handleSignOut} from './LoginManager';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import './Login.css'
 
-
-function Login() {
+const Login = () => {
+    const googleIcon = <FontAwesomeIcon icon={faGoogle} />
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
         isSignedIn: false,
@@ -87,44 +90,63 @@ function Login() {
     }
 
     return (
-        <div style={{ textAlign: 'center' }}>
-            {
-                user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
-                    <button onClick={googleSignIn}>Sign In</button>
-            }
-            {
-                user.isSignedIn && <div>
-                    <p>welcome, {user.name}</p>
-                    <p>Your email: {user.email}</p>
-                    <img src={user.photo} alt="" />
-                </div>
-            }
+        // <div style={{ textAlign: 'center' }}>
+        //     {
+        //         user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
+        //             <button onClick={googleSignIn}>Sign In</button>
+        //     }
+        //     {
+        //         user.isSignedIn && <div>
+        //             <p>welcome, {user.name}</p>
+        //             <p>Your email: {user.email}</p>
+        //             <img src={user.photo} alt="" />
+        //         </div>
+        //     }
 
-            <h1>Our own authentication system</h1>
-            <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-            <label htmlFor="bewUser">New User Sign Up</label> <br />
+        //     <h1>Our own authentication system</h1>
+        //     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
+        //     <label htmlFor="bewUser">New User Sign Up</label> <br />
 
 
+        //     <form onSubmit={handleSubmit}>
+        //         {
+        //             newUser &&
+        //             <input type="text" name="name" onBlur={handleBlur} placeholder="enter your name" required />
+
+        //         }
+        //         <br />
+
+        //         <input type="text" onBlur={handleBlur} placeholder="enter your email" name="email" id="" required /> <br />
+
+        //         <input type="password" onBlur={handleBlur} placeholder="enter password" name="password" required /> <br />
+
+        //         <input type="submit" value={newUser ? 'Sign Up' : 'SIgn In'} />
+        //     </form>
+
+        //     <p style={{ color: 'red' }}>{user.error}</p>
+        //     {
+        //         user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>
+        //     }
+
+        // </div>
+        <div className="login-system container">
+            <h3 className="loginTitle">Sign Up or Login Here</h3>
             <form onSubmit={handleSubmit}>
-                {
-                    newUser &&
-                    <input type="text" name="name" onBlur={handleBlur} placeholder="enter your name" required />
-
+                { newUser &&
+                    <input className="inputClass" type="text" name="name" onBlur={handleBlur} placeholder="enter your name" required />
                 }
                 <br />
-
-                <input type="text" onBlur={handleBlur} placeholder="enter your email" name="email" id="" required /> <br />
-
-                <input type="password" onBlur={handleBlur} placeholder="enter password" name="password" required /> <br />
-
-                <input type="submit" value={newUser ? 'Sign Up' : 'SIgn In'} />
+                <input className="inputClass" type="text" onBlur={handleBlur} placeholder="Enter your email" name="email" id="" required /> <br />
+                <input className="inputClass" type="password" onBlur={handleBlur} placeholder="Enter password" name="password" required /> <br />
+                <input className="inputClass" type="password" onBlur={handleBlur} placeholder="Confirm password" name="password" required /> <br />
+                <input className="submitButton" type="submit" value={newUser ? 'Sign Up' : 'SIgn In'} />
             </form>
-
-            <p style={{ color: 'red' }}>{user.error}</p>
-            {
-                user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>
-            }
-
+            <button className="googleButton" onClick={googleSignIn}>{googleIcon}Sign In With Google</button>
+            <br />
+            <h5> Don't have an account?
+            <input  type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
+                <label htmlFor="bewUser">new user sign up</label> <br />
+            </h5>
         </div>
     );
 }

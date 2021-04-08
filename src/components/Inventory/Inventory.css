@@ -1,0 +1,9 @@
+.manageProduct{
+    background-color: gray;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    height: 200px;
+    border-radius: 2px;
+    font-weight: 700;
+}

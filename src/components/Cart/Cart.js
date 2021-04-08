@@ -9,7 +9,7 @@ const Cart = (props) => {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total += product.price * product.quantity || 1;
+        total += product.price * (product.quantity || 1);
     }
 
     let shipping = 0;
@@ -29,7 +29,6 @@ const Cart = (props) => {
     const formatNumber = (num) => {
         const precision = num.toFixed(2);
         return Number(precision);
-        // console.log(precision);
     }
 
     return (
