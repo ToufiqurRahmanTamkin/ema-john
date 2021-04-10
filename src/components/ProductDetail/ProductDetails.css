@@ -1,0 +1,9 @@
+.productDetailsClass{
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+    background-color: rgb(122, 182, 182);
+    border: 1px solid greenyellow;
+    border-radius: 3px;
+    text-align: center;
+}

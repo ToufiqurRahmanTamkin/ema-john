@@ -9,7 +9,6 @@ const getUser = () => {
     }
 }
 
-
 const getDataKey = () => {
     const userId = getUser();
     return `emaJohn/carts/${userId}`
@@ -38,9 +37,7 @@ const processOrder = (cart) => {
     localStorage.removeItem(getDataKey());
 }
 
-
 export { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrder };
-
 
 // polyfill to support older browser
 const localStorage = window.localStorage || (() => {

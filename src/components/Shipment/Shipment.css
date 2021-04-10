@@ -1,13 +1,46 @@
-.ship-form{
+.ship-form {
     margin: 30px 100px;
 }
-.ship-form input{
+
+.ship-form input {
     display: block;
     margin-top: 30px;
     padding: 5px;
     border: 1px solid gray;
     width: 300px;
 }
-.error{
+
+.error {
     color: red;
+}
+
+.shippingMainDiv {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(167, 179, 218);
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.shippingAddressDiv {
+    margin-top: 3px;
+    padding: 10px;
+}
+
+.paymentDiv {
+    color: white;
+    margin-top: 5px;
+    height: 150px;
+}
+
+.paymentDiv>input {
+    color: white;
+}
+.paymentTitle{
+    width: 50%;
+    margin: auto;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
 }

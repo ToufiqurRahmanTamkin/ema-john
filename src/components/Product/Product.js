@@ -10,7 +10,7 @@ const Product = (props) => {
     return (
         <div className="product">
             <div>
-                <img src={img} alt="" />
+                <img className="imageClass" src={img} alt="" />
             </div>
 
             <div className="product-div">
@@ -18,7 +18,7 @@ const Product = (props) => {
                 <Link to={"/product/"+ key}>{name}</Link> </h4>
                 <br/>
                 <p> <small>by: {seller}</small> </p>
-                <p>${price}</p>
+                <p className="priceClass">${price}</p>
                 <p> <small>Only {stock} left in stock - Order Soon</small> </p>
 
                 { props.showAddToCart === true && <button 
