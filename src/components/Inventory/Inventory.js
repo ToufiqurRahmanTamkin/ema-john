@@ -1,54 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Inventory.css'
 import { Button } from '@material-ui/core';
 import { Table } from 'react-bootstrap';
+import axios from 'axios';
+import { useForm } from "react-hook-form";
+
 
 const Inventory = () => {
+    const { register, handleSubmit } = useForm();
+    const [imageURL, setIMageURL] = useState(null);
 
-    const handleAddProduct = () => {
-        const product = {};
-        fetch('http://localhost:5000/addProduct', {
+    const onSubmit = data => {
+        const addData = {
+            name: data.name,
+            price: data.price,
+            weight: data.weight,
+            img: imageURL,
+            time: new Date().toLocaleString()
+        };
+        const url = `http://localhost:5000/addProduct`;
+        fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(addData)
         })
-    }
-    return (
-        // <button onClick={handleAddProduct}>Add Product</button> 
-        <form className="manageProduct mt-5">
-            {/* <form action="">
-                <p><span>name</span><input type="text" /></p>
-                <p><span>Price</span><input type="text" /></p>
-                <p><span>Quantity</span><input type="text" /></p>
-                <p><span>Product Image</span><input type="file" /></p>
+            .then(res => console.log('server side response', res))
+    };
 
-                <Button variant="contained" color="primary" onClick={handleAddProduct}>Add New Product</Button>
-            </form> */}
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="text" placeholder="Product Name" /></td>
-                        <td><input type="text" placeholder="Product Price" /></td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td><input type="text" placeholder="Product Quantity" /></td>
-                        <td><input type="file" placeholder="Product Image" /></td>
-                    </tr>
-                </tbody>
-            </Table>
-            {/* <Button variant="contained" color="primary" onClick={handleAddProduct}>Add Product</Button> */}
-            <Button variant="contained" color="secondary" onClick={handleAddProduct}>Add Product</Button>
-        </form>
+    const handleImageUpload = event => {
+        console.log(event.target.files[0])
+        const imageData = new FormData();
+        imageData.set('key', '4295ac4d47b569312bea67b440cdbdbb');
+        imageData.append('image', event.target.files[0]);
+
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData)
+            .then(function (response) {
+                setIMageURL(response.data.data.display_url);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
+    return (
+        <div className="container text-center">
+            <div className="row">
+                <div className="container">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Table striped bordered hover variant="dark">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input name="name" placeholder="Enter name" ref={register} />
+                                    </td>
+                                    <td>
+                                        <input name="weight" placeholder="Enter quantity" type="text" ref={register} />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <thead>
+                                <tr>
+                                    <th>Add Price</th>
+                                    <th>Add Photo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input name="price" placeholder="Enter price" type="text" ref={register} /> </td>
+                                    <td> <input name="exampleRequired" type="file" onChange={handleImageUpload} /> </td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    {/* <td> <input className="submitButtonClass" type="submit" /></td> */}
+                                    {/* <td><Button className="submitButtonClass" type="submit">Add Product</Button></td> */}
+                                    <td><Button variant="contained" color="primary" type="submit"> Add Product </Button></td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </form>
+                </div>
+            </div>
+        </div>
+  
     );
 };
 

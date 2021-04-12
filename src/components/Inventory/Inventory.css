@@ -7,3 +7,16 @@
     border-radius: 2px;
     font-weight: 700;
 }
+.submitButtonClass{
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    border: none;
+    height: 30px;
+    border-radius: 3px;
+}
+.submitButtonClass :hover{
+    background-color: rgb(46, 38, 163);
+    border-radius: 3px;
+    border: none;
+    color: white;
+}

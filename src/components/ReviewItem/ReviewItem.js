@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 const ReviewItem = (props) => {
     // console.log(props);
-    const {name, quantity, key, price} = props.product;
-    const reviewItemStyle={
+    const { name, quantity, key, price } = props.product;
+    const reviewItemStyle = {
         borderBottom: '1px solid lightgray',
-        marginBottom:'5px',
+        marginBottom: '5px',
         paddingBottom: '5px',
         marginLeft: '200px',
     };
@@ -13,12 +14,14 @@ const ReviewItem = (props) => {
         <div style={reviewItemStyle} className="review-item">
             <h4 className="product-name">{name}</h4>
             <p>Quantity: {quantity}</p>
-            <br/>
+            <br />
             <p> <small>${price}</small> </p>
-            <button 
+            {/* <button
                 className="main-button"
-                onClick={()=> props.removeProduct(key)}
-                >Remove</button>
+                onClick={() => props.removeProduct(key)}
+            >Remove</button> */}
+            <Button onClick={() => props.removeProduct(key)} variant="contained" color="secondary"> Remove </Button>
+
         </div>
     );
 };

@@ -1,13 +1,12 @@
+import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import fakeData from '../../fakeData';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
 const Shop = () => {
-    // const first90 = fakeData.slice(0, 90);
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
@@ -29,15 +28,6 @@ const Shop = () => {
         })
             .then(res => res.json())
             .then(data => setCart(data))
-        // console.log(products, productKeys);
-        // if(products.length > 0){
-        //     const previousCart = productKeys.map(existingKey =>{
-        //         const product = products.find(pd => pd.key === existingKey);
-        //         product.quantity = savedCart[existingKey];
-        //         return product;
-        //     })
-        //     setCart(previousCart);
-        // }
     }, [])
 
 
@@ -64,8 +54,7 @@ const Shop = () => {
         <div className="twin-container">
             <div className="product-container">{
                 products.map(pd =>
-                    <Product
-                        key={pd.key}
+                    <Product key={pd.key}
                         handleAddProduct={handleAddProduct}
                         product={pd}
                         showAddToCart={true}>
@@ -75,7 +64,8 @@ const Shop = () => {
             <div className="cart-container">
                 <Cart cart={cart}>
                     <Link to="/review">
-                        <button className="review-button">Review Order</button>
+                        {/* <button className="review-button">Review Order</button> */}
+                        <Button variant="contained" color="primary"> Review Order </Button>
                     </Link>
                 </Cart>
             </div>

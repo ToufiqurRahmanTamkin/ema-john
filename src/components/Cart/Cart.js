@@ -4,9 +4,6 @@ import './Cart.css'
 
 const Cart = (props) => {
     const cart = props.cart;
-    // const totalPrice = cart.reduce((total, prd) => total + prd.price * prd.quantity, 0);
-
-    // console.log(cart);
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
@@ -33,8 +30,8 @@ const Cart = (props) => {
     }
 
     return (
-        <div>
-            <h4 className="summaryTitle">Order Summary</h4>
+        <div className='text-center mr-1 mt-1 '>
+            <h4 className="summaryTitle rounded">Order Summary</h4>
             <p>Items Ordered: {cart.length} </p>
             <p>Product Price: {formatNumber(total)}</p>
             <p> <small>Shipping Cost is: ${shipping}</small> </p>

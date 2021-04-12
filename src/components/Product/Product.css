@@ -14,6 +14,8 @@
     margin-left: 25px;
     margin-top: 25px;
     border-radius: 5px;
+    height: 200px;
+    width: 200px;
 }
 .priceClass{
     font-weight: 700;
