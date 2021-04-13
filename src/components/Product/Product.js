@@ -21,12 +21,6 @@ const Product = (props) => {
 
                 {
                     props.showAddToCart === true &&
-                    // <button
-                    //     className="main-button"
-                    //     onClick={() => props.handleAddProduct(props.product)}>
-                    //     <FontAwesomeIcon
-                    //         icon={faShoppingCart} /> Add to Cart
-                    // </button>
                     <Button onClick={() => props.handleAddProduct(props.product)} variant="contained" color="primary"><FontAwesomeIcon icon={faShoppingCart}/> Add to Cart </Button>
                 }
             </div>

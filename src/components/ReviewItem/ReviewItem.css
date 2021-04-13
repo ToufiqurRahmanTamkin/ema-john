@@ -1,0 +1,14 @@
+.review-style{
+    background-color: rgb(120, 143, 194);
+    margin: 3px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.review-image-class{
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
+}
+.price-tag-class{
+    color: darkblue;
+}

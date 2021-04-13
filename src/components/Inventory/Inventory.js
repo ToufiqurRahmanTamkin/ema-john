@@ -82,8 +82,6 @@ const Inventory = () => {
                                 </tr>
                                 <tr>
                                     <td> </td>
-                                    {/* <td> <input className="submitButtonClass" type="submit" /></td> */}
-                                    {/* <td><Button className="submitButtonClass" type="submit">Add Product</Button></td> */}
                                     <td><Button variant="contained" color="primary" type="submit"> Add Product </Button></td>
                                 </tr>
                             </tbody>

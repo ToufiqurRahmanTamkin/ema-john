@@ -71,18 +71,12 @@ const Login = () => {
         if (newUser && user.name && user.password) {
             createUserWithEmailAndPassword(user.name, user.email, user.password)
             .then(res=>{
-                // setUser(res);
-                // setLoggedInUser(res);
-                // history.replace(from);
                 handleResponse(res, true);
             })
         }
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
             .then(res=>{
-                // setUser(res);
-                // setLoggedInUser(res);
-                // history.replace(from);
                 handleResponse(res, false);
             })
         }
@@ -90,45 +84,6 @@ const Login = () => {
     }
 
     return (
-        // <div style={{ textAlign: 'center' }}>
-        //     {
-        //         user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
-        //             <button onClick={googleSignIn}>Sign In</button>
-        //     }
-        //     {
-        //         user.isSignedIn && <div>
-        //             <p>welcome, {user.name}</p>
-        //             <p>Your email: {user.email}</p>
-        //             <img src={user.photo} alt="" />
-        //         </div>
-        //     }
-
-        //     <h1>Our own authentication system</h1>
-        //     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-        //     <label htmlFor="bewUser">New User Sign Up</label> <br />
-
-
-        //     <form onSubmit={handleSubmit}>
-        //         {
-        //             newUser &&
-        //             <input type="text" name="name" onBlur={handleBlur} placeholder="enter your name" required />
-
-        //         }
-        //         <br />
-
-        //         <input type="text" onBlur={handleBlur} placeholder="enter your email" name="email" id="" required /> <br />
-
-        //         <input type="password" onBlur={handleBlur} placeholder="enter password" name="password" required /> <br />
-
-        //         <input type="submit" value={newUser ? 'Sign Up' : 'SIgn In'} />
-        //     </form>
-
-        //     <p style={{ color: 'red' }}>{user.error}</p>
-        //     {
-        //         user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>
-        //     }
-
-        // </div>
         <div className="login-system container">
             <h3 className="loginTitle">Sign Up or Login Here</h3>
             <form onSubmit={handleSubmit}>
