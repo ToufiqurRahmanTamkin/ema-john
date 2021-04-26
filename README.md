@@ -1,5 +1,5 @@
 # Ema-John-Client-Side
-In this application, I've used many things like,
+In this application, I've used many things like- 
 React JS,
 React Router,
 React Hook,
