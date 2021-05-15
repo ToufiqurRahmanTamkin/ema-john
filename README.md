@@ -1,4 +1,4 @@
-# Ema-John-Client-Side
+# Ema-John-Ecommerce-Client-Side
 This is an E-commerce based web application, which I was developed so that one user can buy products using this application.
 Here all data of the home page are coming from the MongoDB database which is added by an admin.
 This application is fully functional. This application is also responsive for computer screens.
